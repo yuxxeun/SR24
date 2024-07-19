@@ -64,7 +64,6 @@ export default defineConfig({
     service: sharpImageService()
   },
   site: "https://yuxxeun.vercel.app",
-  base: 'https://github.com/yuxxeun/SR24.git',
   vite: {
     plugins: [rawFonts([".ttf", ".woff"])],
     optimizeDeps: {
