@@ -48,37 +48,37 @@ Untuk menghubungkan aplikasi PHP kita ke basis data MySQL, method dari API yang 
 
 Kode nya kurang lebih seperti ini:
 
-```php
-$conn = mysqli_connect( $hostname, $username, $password );
+```php title="php"
+$conn = mysqli_connect($hostname, $username, $password);
 
-if ( !$conn ) {
-  die( 'connection failed' . mysqli_connect_error() );
+if (!$conn) {
+  die('connection failed' . mysqli_connect_error());
 }
 
-mysqli_close( $conn );
+mysqli_close($conn);
 ```
 
 Kita akan menggunakan *variable* `$conn` tersebut untuk memanggil method lain seperti untuk melakukan *query* misalnya dengan memanggil `mysqli_query`. Let's do it, I guess?
 
-```php
-$conn = mysqli_connect( $hostname, $username, $password );
+```php title="php"
+$conn = mysqli_connect($hostname, $username, $password);
 
 if ( !$conn ) {
-  die( 'connection failed' . mysqli_connect_error() );
+  die('connection failed' . mysqli_connect_error());
 }
 
-$database_list = mysqli_query( $conn, "show databases" );
+$database_list = mysqli_query($conn, "show databases");
 
-if ( $database_list ) {
-  print_r( $database_list );
+if ($database_list) {
+  print_r($database_list);
 }
 
-mysqli_close( $conn );
+mysqli_close($conn);
 ```
 
 Hasilnya jika memiliki 4 database, kurang lebih seperti ini:
 
-```sql
+```cmd title="output"
 (
     [current_field] => 0
     [field_count] => 1
@@ -98,41 +98,32 @@ Umumnya kita harus mendefinisikan nama kolom yang ingin diambil karena alasan pr
 
 Menggunakan statement `SELECT` di `mysqli_query` tidak terlalu sulit, mungkin seperti ini dengan konteks kita ingin mengambil data di kolom `email` dari table `users`:
 
-```php
-$conn = mysqli_connect( $hostname, $username, $password, $dbname );
+```php title="php"
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
 
-if ( !$conn ) {
-  die( 'connection failed' . mysqli_connect_error() );
+if (!$conn) {
+  die('connection failed' . mysqli_connect_error());
 }
 
-$users = mysqli_query( $conn, "SELECT email FROM users" );
+$users = mysqli_query($conn, "SELECT email FROM users");
 
-if ( mysqli_num_rows( $users ) > 0 ) {
-  while( $row = mysqli_fetch_assoc( $users ) ) {
-    print_r( $row );
+if (mysqli_num_rows($users) > 0) {
+  while( $row = mysqli_fetch_assoc($users)) {
+    print_r($row);
   }
 }
 
-mysqli_close( $conn );
+mysqli_close($conn);
 ```
 
 Diatas kita sudah mendefinisikan `$dbname` dan juga kita memanggil `mysqli_num_rows` untuk memastikan bahwa ada data yang bisa kita proses dan juga memanggil `mysqli_fetch_assoc` untuk menyimpan hasil *query* yang kita lakukan sebagai *associative* array.
 
 Hasilnya kurang lebih seperti ini:
 
-```shell
-Array
-(
-    [email] => anggun@acme.inc
-)
-Array
-(
-    [email] => kiko@enak.tau
-)
-Array
-(
-    [email] => krido@hey.io 
-)
+```cmd title="output"
+Array ([email] => anggun@acme.inc)
+Array ([email] => kiko@enak.tau)
+Array ([email] => krido@hey.io)
 ```
 
 Sekarang kita ke bagian yang menarik, bagaimana kita ingin mengambil data untuk user `anggun@acme.inc` saja? Kita bisa menambahkan `WHERE` didalam sintaks SQL kita sebelumnya!
@@ -141,59 +132,56 @@ Tapi sedikit lucu jika menggunakan kolom `email` sebagai kunci utama. Biasanya k
 
 Berarti sekarang mari kita ambil data `email` berdasarkan `id` dari si `users` tersebut!
 
-```php
-$conn = mysqli_connect( $hostname, $username, $password, $dbname );
+```php title="php"
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
 
-if ( !$conn ) {
-  die( 'connection failed' . mysqli_connect_error() );
+if (!$conn) {
+  die('connection failed' . mysqli_connect_error());
 }
 
 $user_id = 1337;
-$user = mysqli_query( $conn, "SELECT email FROM users where id = $user_id" );
+$user = mysqli_query($conn, "SELECT email FROM users where id = $user_id");
 
-if ( mysqli_num_rows( $user ) > 0 ) {
-  while( $row = mysqli_fetch_assoc( $user ) ) {
-    print_r( $row );
+if (mysqli_num_rows($user) > 0 ) {
+  while( $row = mysqli_fetch_assoc($user)) {
+    print_r($row);
   }
 }
 
-mysqli_close( $conn );
+mysqli_close($conn);
 ```
 
 Dan hasilnya kurang lebih seperti ini:
 
-```shell
-Array
-(
-    [email] => anggun@acme.inc
-)
+```cmd title="output"
+Array([email] => anggun@acme.inc)
 ```
 
 Very ez. Tapi nilai `$user_id` diatas masih statis, harusnya dinamis entah diambil dari `$_GET`, `$_POST` atau bahkan `$_COOKIE`.
 
 Anggap kita ambil dari *cookie* dengan *key* bernama `user_id` karena jika menggunakan *query parameter* terlalu jelas. Kode nya seperti ini:
 
-```php
-$conn = mysqli_connect( $hostname, $username, $password, $dbname );
+```php title="php"
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
 
-if ( !$conn ) {
-  die( 'connection failed' . mysqli_connect_error() );
+if (!$conn) {
+  die('connection failed' . mysqli_connect_error());
 }
 
-if ( !isset( $_COOKIE[ 'user_id' ] ) ) {
-  die( 'no user_id' );
+if (!isset($_COOKIE['user_id'])) {
+  die('no user_id');
 }
 
-$user_id = $_COOKIE[ 'user_id' ];
+$user_id = $_COOKIE['user_id'];
 $user = mysqli_query( $conn, "SELECT email FROM users where id = $user_id" );
 
-if ( mysqli_num_rows( $user ) > 0 ) {
-  while( $row = mysqli_fetch_assoc( $user ) ) {
-    print_r( $row );
+if (mysqli_num_rows($user) > 0) {
+  while($row = mysqli_fetch_assoc($user)) {
+    print_r($row);
   }
 }
 
-mysqli_close( $conn );
+mysqli_close($conn);
 ```
 
 Jika nilai `$_COOKIE['user_id']` adalah `1337`, maka hasilnya kurang lebih sama seperti yang sebelumnya.
@@ -202,7 +190,7 @@ Bagaimana bila nilainya adalah `1337 or 1 = 1`?
 
 You guessed it right.
 
-(and yes, $_SESSION and/or JWT exist for a reason — just in case)
+(and yes, `$_SESSION` and/or `JWT` exist for a reason — just in case)
 
 ### Abstractions
 
@@ -219,32 +207,28 @@ Jika kita melihat cuplikan kode diatas, kita bisa membuat abstraksi seperti untu
 
 Pseudocode nya mungkin seperti ini:
 
-```php
-$db = new DB( $ENV[ 'DB' ] );
+```php title="php"
+$db = new DB($ENV['DB']);
 
-if ( !isset( $_COOKIE[ 'user_id' ] ) ) {
-  die( 'no user_id' );
+if (!isset($_COOKIE['user_id'])) {
+  die('no user_id');
 }
 
-$user = $db->select(
-  'users',
-  array( 'email' ),
-  array( 'id' => $_COOKIE[ 'user_id' ] )
-);
+$user = $db->select('users', array('email'), array('id' => $_COOKIE['user_id']));
 
-print_r( $user );
+print_r($user);
 ```
 
 Yes, kita bisa buat abstraksi lagi untuk terus menutupi aib yang ada di kode kita yang mungkin menjadi seperti ini:
 
-```php
-if ( ! isset( $_COOKIE[ 'user_id' ] ) ) {
-  die( 'no user_id' );
+```php title="php"
+if (!isset($_COOKIE['user_id'])) {
+  die('no user_id');
 }
 
-$user = User::find( $_COOKIE[ 'user_id' ], array( 'email' ) );
+$user = User::find($_COOKIE['user_id'], array('email'));
 
-print_r( $user );
+print_r($user);
 ```
 
 Dan, ya, mungkin kamu sedikit familiar dengan sintaks diatas.
@@ -267,31 +251,14 @@ Yang membedakan ORM dengan *"query builder"* pada dasarnya hanyalah level abstra
 
 Dengan *query builder* tentu kita bisa melakukan ini:
 
-```php
+```php title="php"
 $db->transaction(
-  function( $db ) {
-    $db->insert(
-      'addresses',
-      array( 'address' => 'Jl. Dipayuda' )
-    );
-
+  function($db) {
+    $db->insert('addresses', array( 'address' => 'Jl. Dipayuda' ));
     $address_id = $db->id();
-
-    $db->insert(
-      'shipping_address',
-      array( 'address' => 'Jl. Mayjend Panjaitan No.69' )
-    );
-
+    $db->insert('shipping_address', array( 'address' => 'Jl. Mayjend Panjaitan No.69' ));
     $shipping_address_id = $db->id();
-
-    $db->insert(
-      'users',
-      array(
-        'name' => 'krido',
-        'address_id' => $address_id,
-        'shipping_address_id' => $shipping_address_id
-      )
-    );
+    $db->insert('users',  array('name' => 'krido', 'address_id' => $address_id, 'shipping_address_id' => $shipping_address_id));
   }
 );
 
@@ -301,20 +268,14 @@ $db->commit();
 Dengan ORM, mungkin bisa seperti ini:
 
 ```php
-DB::transaction( function() {
-  $address = new Address(
-    array( 'address' => 'Jl. Dipayuda' )
-  );
+DB::transaction(function() {
+  $address = new Address(array( 'address' => 'Jl. Dipayuda' ));
+  $shipping_address = new ShippingAddress(array( 'address' => 'Jl. Mayjend Panjaitan No.69' ));
+  $user = User::find(69);
 
-  $shipping_address = new ShippingAddress(
-    array( 'address' => 'Jl. Mayjend Panjaitan No.69' )
-  );
-
-  $user = User::find( 69 );
-
-  $user->address()->save( $address );
-  $user->shipping_address()->save( $shipping_address );
-} );
+  $user->address()->save($address);
+  $user->shipping_address()->save($shipping_address);
+});
 ```
 
 Atau contoh hooks, dengan query builder mungkin kita bisa saja melakukan seperti ini:
@@ -322,15 +283,8 @@ Atau contoh hooks, dengan query builder mungkin kita bisa saja melakukan seperti
 ```php
 $db->transaction(
   function( $db ) {
-    $db->delete(
-      'users',
-      array( 'user_id' => 1337 )
-    );
-
-    $db->delete(
-      'logs',
-      array( 'user_id' => 1337 )
-    );
+    $db->delete('users', array('user_id' => 1337));
+    $db->delete('logs', array('user_id' => 1337));
   }
 );
 
@@ -339,12 +293,12 @@ $db->commit();
 
 Dengan ORM, mungkin bisa seperti ini:
 
-```php
-self::deleting( function( $user ) {
-  $user->logs()->each( function ( $log ) {
+```php title="php"
+self::deleting(function($user) {
+  $user->logs()->each( function($log) {
     $log->delete();
-  } );
-} );
+  });
+});
 ```
 
 Ya mungkin tidak sesederhana diatas, tapi semoga mendapat gambarannya.
@@ -355,32 +309,25 @@ Misal ada kasus: *Ambil data artikel yang memiliki id 10*, bagaimana kita menuli
 
 Kita pasti harus mengsimulasikan basis data yang ada karena tidak mungkin bila menggunakan basis data beneran. Berdasarkan contoh diatas, untuk menandakan bahwa artikel yang diambil adalah yang memiliki id 10 dan bukan 6969, misal pseudocode nya seperti ini:
 
-```php
-function get_article_by_id( $article_id ) {
-  // ... query to db
+```php title="php"
+function get_article_by_id($article_id) {
+  // very long query to db...
   return $article;
 }
 ```
 
 Dengan query builder, kemungkinan besar untuk mengetahui apakah yang kita query tersebut "benar" adalah dengan melakukan pencocokan dengan raw query nya, misalnya seperti ini:
 
-```php
-$query = $article->get_article_by_id( 10 )->queryString;
-assert(
-  $query,
-  "SELECT id, title, content FROM articles WHERE id = 10"
-);
+```php title="php"
+$query = $article->get_article_by_id(10)->queryString;
+assert($query,"SELECT id, title, content FROM articles WHERE id = 10");
 ```
 
 Dengan ORM, kita bisa melakukannya misal seperti ini:
 
-```php
-$article = Article::find( 10 );
-
-assert(
-  $article->id,
-  10
-);
+```php title="php"
+$article = Article::find(10);
+assert($article->id, 10);
 ```
 
 Karena dengan ORM kita bisa melakukan seeding data dengan mudah dan hal yang perlu kita gunakan untuk berinteraksi dengan basis data adalah sesuatu bernama "model".

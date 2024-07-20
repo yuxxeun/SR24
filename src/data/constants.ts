@@ -4,7 +4,7 @@ export const defaultMeta = {
   title: "yuxxeun",
   description: "yuxxeun digital garden.",
   ogImage: {
-    src: "/static/banner.png",
+    src: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
     alt: "yuxxeun",
   },
 };
