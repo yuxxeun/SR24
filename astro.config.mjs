@@ -12,7 +12,7 @@ import react from "@astrojs/react";
 import { toString } from "hast-util-to-string";
 import { h } from "hastscript";
 import vue from "@astrojs/vue";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/static";
 
 /** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
 const astroExpressiveCodeOptions = {
@@ -72,9 +72,9 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"]
     }
   },
-  output: "server",
+  output: "static",
   adapter: vercel({
-    webAnalytics: { enabled: true }
+    webAnalytics: { enabled:true }
   })
 });
 
