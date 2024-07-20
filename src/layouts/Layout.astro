@@ -60,16 +60,20 @@ const canonicalURL = new URL(Astro.url).href;
     }
      <SEO
       title={title}
+      titleTemplate="%s — yuxxeun"
       description={description}
+      charset= "UTF-8"
       openGraph={{
         basic: {
-          title: `{title}`,
+          title: "yuxxeun",
+          url: "yuxxeun.vercel.app",
           type: "Website",
           image: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
         }
       }}
+      canonical={Astro.url.href}
       twitter={{
-        creator: `{twitter}`
+        creator: "@yuxxeun"
       }}
       extend={{
         link: [{ rel: "icon", href: "/emoji.jpg" }],
@@ -78,7 +82,7 @@ const canonicalURL = new URL(Astro.url).href;
             name: "twitter:image",
             content: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
           },
-          { name: "twitter:title", content: `{title}` },
+          { name: "twitter:title", content: "yuxxeun" },
           { name: "twitter:description", content: `{description}` },
         ],
       }}
