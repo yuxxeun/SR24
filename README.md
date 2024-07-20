@@ -1,6 +1,6 @@
 # SR24 ✨
 - **Framework**: [Astro](https://astro.build)
-- Styling: [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+- **Styling**: [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
 - **Integration**: 
     - [@astrojs/react](https://docs.astro.build/en/guides/integrations-guide/react/)
     - [@astrojs/vue](https://docs.astro.build/en/guides/integrations-guide/vue/)
