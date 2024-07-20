@@ -9,9 +9,6 @@ import "@fontsource-variable/newsreader/wght-italic.css";
 import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
 import "@styles/base.css";
-import { string } from "astro/zod";
-
-const twitter = "yuxxeun";
 
 interface Props {
   title?: string;
@@ -39,17 +36,6 @@ const canonicalURL = new URL(Astro.url).href;
 <!doctype html>
 <html lang="en-US" class="scroll-smooth dark:[color-scheme:dark]">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/emoji.jpg" />
-    <link rel="canonical" href={canonicalURL} />
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="follow, index" />
-    <meta name="author" content={author} />
     {
       pubDate && (
         <meta
@@ -71,7 +57,7 @@ const canonicalURL = new URL(Astro.url).href;
           image: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
         }
       }}
-      canonical={Astro.url.href}
+      canonical={canonicalURL}
       twitter={{
         creator: "@yuxxeun"
       }}
@@ -90,8 +76,7 @@ const canonicalURL = new URL(Astro.url).href;
   </head>
 
   <body
-    class="bg-zinc-50 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg"
-  >
+    class="bg-zinc-50 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg">
     <SmoothScrooll client:load>
       <a
         href="#main-content"
