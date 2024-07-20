@@ -34,6 +34,7 @@ const canonicalURL = new URL(Astro.url).href;
 
 <!doctype html>
 <html lang="en-US" class="scroll-smooth dark:[color-scheme:dark]">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <head>
     {
       pubDate && (
@@ -44,6 +45,7 @@ const canonicalURL = new URL(Astro.url).href;
       )
     }
      <SEO
+      titleDefault="yuxxeun"
       titleTemplate="%s — yuxxeun"
       description={description}
       charset= "UTF-8"
