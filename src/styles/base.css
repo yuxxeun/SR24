@@ -50,6 +50,16 @@
     color: #000000 !important;
   }
 
+  .dark::selection {
+    background: #32fff1 !important;
+    color: #000000 !important;
+  }
+
+  .dark::-moz-selection {
+   background: #32fff1 !important;
+    color: #000000 !important;
+  }
+
   :root {
   --icon-color-light: #000000 !important; /* Hitam pekat untuk light mode */
   --icon-color-dark: #FFFFFF !important; /* Putih pekat untuk dark mode */
