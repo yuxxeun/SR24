@@ -24,6 +24,7 @@ interface Props {
 }
 
 const {
+  title = defaultMeta.title,
   description = defaultMeta.description,
   pubDate,
   wide = false,
@@ -45,15 +46,15 @@ const canonicalURL = new URL(Astro.url).href;
       )
     }
      <SEO
-      titleDefault="yuxxeun"
+      titleDefault={title}
       titleTemplate="%s — yuxxeun"
       description={description}
       charset= "UTF-8"
       openGraph={{
         basic: {
-          title: "yuxxeun",
+          title: "%s — yuxxeun",
           url: "yuxxeun.vercel.app",
-          type: "Website",
+          type: "website",
           image: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
         }
       }}
@@ -65,11 +66,11 @@ const canonicalURL = new URL(Astro.url).href;
         link: [{ rel: "icon", href: "/emoji.jpg" }],
         meta: [
           {
-            name: "twitter:image",
+            name: "twitter:summary_large_image",
             content: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
           },
           { name: "twitter:title", content: "yuxxeun" },
-          { name: "twitter:description", content: `{description}` },
+          { name: "twitter:description", content: "yuxxeun digital garden" },
         ],
       }}
     />
@@ -79,10 +80,7 @@ const canonicalURL = new URL(Astro.url).href;
   <body
     class="bg-zinc-50 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg">
     <SmoothScrooll client:load>
-      <a
-        href="#main-content"
-        class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-800 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm"
-      >
+      <a href="#main-content" class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-800 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm">
         Skip to main content
       </a>
       <nav
@@ -104,8 +102,7 @@ const canonicalURL = new URL(Astro.url).href;
         <button
           id="dark-mode-toggle"
           class="text-zinc-900 hover:text-zinc-600 focus:outline-none dark:text-zinc-100 dark:hover:text-zinc-300"
-          aria-label="Toggle theme mode"
-        >
+          aria-label="Toggle theme mode">
           <Icon name="mv" class="sun-icon h-5 w-5" />
           <Icon name="sv" class="moon-icon h-5 w-5" />
         </button>
@@ -116,8 +113,7 @@ const canonicalURL = new URL(Astro.url).href;
         class:list={{
           "max-w-4xl": wide,
           "max-w-3xl": !wide,
-        }}
-      >
+        }}>
         <noscript>
           <Callout type="error" title="NOTICE">
             Some features on this website won't work without JavaScript such as
