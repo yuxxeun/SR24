@@ -78,7 +78,7 @@ mysqli_close($conn);
 
 Hasilnya jika memiliki 4 database, kurang lebih seperti ini:
 
-```cmd title="output"
+```bash title="output"
 (
     [current_field] => 0
     [field_count] => 1
@@ -120,10 +120,10 @@ Diatas kita sudah mendefinisikan `$dbname` dan juga kita memanggil `mysqli_num_r
 
 Hasilnya kurang lebih seperti ini:
 
-```cmd title="output"
+```bash title="output"
 Array ([email] => anggun@acme.inc)
 Array ([email] => kiko@enak.tau)
-Array ([email] => krido@hey.io)
+Array ([email] => krido@bsmnt.pro)
 ```
 
 Sekarang kita ke bagian yang menarik, bagaimana kita ingin mengambil data untuk user `anggun@acme.inc` saja? Kita bisa menambahkan `WHERE` didalam sintaks SQL kita sebelumnya!
@@ -142,8 +142,8 @@ if (!$conn) {
 $user_id = 1337;
 $user = mysqli_query($conn, "SELECT email FROM users where id = $user_id");
 
-if (mysqli_num_rows($user) > 0 ) {
-  while( $row = mysqli_fetch_assoc($user)) {
+if (mysqli_num_rows($user) > 0) {
+  while($row = mysqli_fetch_assoc($user)) {
     print_r($row);
   }
 }
@@ -153,7 +153,7 @@ mysqli_close($conn);
 
 Dan hasilnya kurang lebih seperti ini:
 
-```cmd title="output"
+```bash title="output"
 Array([email] => anggun@acme.inc)
 ```
 
@@ -173,7 +173,7 @@ if (!isset($_COOKIE['user_id'])) {
 }
 
 $user_id = $_COOKIE['user_id'];
-$user = mysqli_query( $conn, "SELECT email FROM users where id = $user_id" );
+$user = mysqli_query($conn, "SELECT email FROM users where id = $user_id");
 
 if (mysqli_num_rows($user) > 0) {
   while($row = mysqli_fetch_assoc($user)) {
@@ -271,6 +271,7 @@ Dengan ORM, mungkin bisa seperti ini:
 DB::transaction(function() {
   $address = new Address(array( 'address' => 'Jl. Dipayuda' ));
   $shipping_address = new ShippingAddress(array( 'address' => 'Jl. Mayjend Panjaitan No.69' ));
+  
   $user = User::find(69);
 
   $user->address()->save($address);
@@ -282,7 +283,7 @@ Atau contoh hooks, dengan query builder mungkin kita bisa saja melakukan seperti
 
 ```php
 $db->transaction(
-  function( $db ) {
+  function($db) {
     $db->delete('users', array('user_id' => 1337));
     $db->delete('logs', array('user_id' => 1337));
   }
@@ -311,7 +312,7 @@ Kita pasti harus mengsimulasikan basis data yang ada karena tidak mungkin bila m
 
 ```php title="php"
 function get_article_by_id($article_id) {
-  // very long query to db...
+  // very long query to db (ceritanya)...
   return $article;
 }
 ```
@@ -332,7 +333,7 @@ assert($article->id, 10);
 
 Karena dengan ORM kita bisa melakukan seeding data dengan mudah dan hal yang perlu kita gunakan untuk berinteraksi dengan basis data adalah sesuatu bernama "model".
 
-### 'The abstraction dilemma' dilemma
+### The abstraction dilemma
 
 Sekarang begini, pada akhirnya, kita—sebagai pengembang—pun akan membuat abstraksi.
 
