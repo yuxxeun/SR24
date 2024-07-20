@@ -12,7 +12,7 @@ import react from "@astrojs/react";
 import { toString } from "hast-util-to-string";
 import { h } from "hastscript";
 import vue from "@astrojs/vue";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel/serverless';
 
 /** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
 const astroExpressiveCodeOptions = {
@@ -38,6 +38,11 @@ const createSROnlyLabel = text => {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://yuxxeun.vercel.app",
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled:true }
+  }),
   markdown: {
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
@@ -65,17 +70,12 @@ export default defineConfig({
   image: {
     service: sharpImageService()
   },
-  site: "https://yuxxeun.vercel.app",
   vite: {
-    plugins: [rawFonts([".ttf", ".woff"])],
+    plugins: [rawFonts([".ttf", ".woff", ".woff2"])],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"]
     }
   },
-  output: "server",
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  })
 });
 
 // vite plugin to import fonts

@@ -61,8 +61,8 @@
   }
 
   :root {
-  --icon-color-light: #000000 !important; /* Hitam pekat untuk light mode */
-  --icon-color-dark: #FFFFFF !important; /* Putih pekat untuk dark mode */
+  --icon-color-light: #000000 !important; 
+  --icon-color-dark: #FFFFFF !important;
 }
 
 body.light-mode .anchor-link-icon path {

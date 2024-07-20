@@ -4,4 +4,4 @@ Disallow: /_astro/
 User-agent: *
 Allow: /
 
-Sitemap: https://sr24.vercel.app/sitemap-index.xml
+Sitemap: https://yuxxeun.vercel.app/sitemap-index.xml
