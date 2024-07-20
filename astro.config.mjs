@@ -11,9 +11,10 @@ import { remarkReadingTime } from "./remark-reading-time.mjs";
 import react from "@astrojs/react";
 import { toString } from "hast-util-to-string";
 import { h } from "hastscript";
+import vue from "@astrojs/vue";
+import vercel from "@astrojs/vercel/serverless";
 
 /** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
-import vue from "@astrojs/vue";
 const astroExpressiveCodeOptions = {
   themes: ["min-dark", "min-light"]
 };
@@ -33,6 +34,7 @@ const createSROnlyLabel = text => {
   node.properties["is:raw"] = true;
   return node;
 };
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -69,7 +71,11 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"]
     }
-  }
+  },
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  })
 });
 
 // vite plugin to import fonts

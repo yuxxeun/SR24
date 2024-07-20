@@ -2,13 +2,15 @@
 import { SEO } from "astro-seo";
 import Link from "@components/Link.astro";
 import { Icon } from "astro-icon/components";
-import { author, defaultMeta, navigation } from "@data/constants";
+import { defaultMeta, navigation } from "@data/constants";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
+import SpeedInsights from '@vercel/speed-insights/astro';
 import "@styles/base.css";
+
 
 interface Props {
   title?: string;
@@ -22,14 +24,11 @@ interface Props {
 }
 
 const {
-  title = defaultMeta.title,
   description = defaultMeta.description,
-  ogImage = defaultMeta.ogImage,
   pubDate,
   wide = false,
 } = Astro.props;
 
-const ogImageURL = new URL(ogImage.src, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
 ---
 
@@ -45,7 +44,6 @@ const canonicalURL = new URL(Astro.url).href;
       )
     }
      <SEO
-      title={title}
       titleTemplate="%s — yuxxeun"
       description={description}
       charset= "UTF-8"
@@ -73,6 +71,7 @@ const canonicalURL = new URL(Astro.url).href;
         ],
       }}
     />
+    <SpeedInsights />
   </head>
 
   <body
