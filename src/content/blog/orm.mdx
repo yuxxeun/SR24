@@ -63,7 +63,7 @@ Kita akan menggunakan *variable* `$conn` tersebut untuk memanggil method lain se
 ```php title="php"
 $conn = mysqli_connect($hostname, $username, $password);
 
-if ( !$conn ) {
+if (!$conn) {
   die('connection failed' . mysqli_connect_error());
 }
 
@@ -108,7 +108,7 @@ if (!$conn) {
 $users = mysqli_query($conn, "SELECT email FROM users");
 
 if (mysqli_num_rows($users) > 0) {
-  while( $row = mysqli_fetch_assoc($users)) {
+  while($row = mysqli_fetch_assoc($users)) {
     print_r($row);
   }
 }
@@ -245,18 +245,18 @@ Tapi sebelum kita julidin ORM, mari kita bahas sedikit apa itu ORM.
 
 ORM singkatnya adalah sebuah teknik untuk melakukan query dan memanipulasi data dari sebuah database menggunakan paradigma berorientasi objek.
 
-Seperti, untuk memanggil `SELECT email FROM users where id = 1337` kita bisa hanya dengan memanggil method `find` dari instance `User` misalnya seperti `User::find( 1337, [ 'email' ] )` dan hasilnya terserah ingin kita apa kan.
+Seperti, untuk memanggil `SELECT email FROM users where id = 1337` kita bisa hanya dengan memanggil method `find` dari instance `User` misalnya seperti `User::find(1337, ['email'])` dan hasilnya terserah ingin kita apa kan.
 
-Yang membedakan ORM dengan *"query builder"* pada dasarnya hanyalah level abstraksi alias API yang ditawarkan, seperti mungkin kita bisa menggunakan `$db->select( 'users', [ 'email' ], [ 'id' => 1337 ] )` yang misalnya karena kita tidak percaya dengan apa yang dilakukan oleh method `find`. Tapi ORM ada bukan karena tanpa alasan, fitur umum yang dijual oleh ORM salah duanya adalah "association" dan "hooks".
+Yang membedakan ORM dengan *"query builder"* pada dasarnya hanyalah level abstraksi alias API yang ditawarkan, seperti mungkin kita bisa menggunakan `$db->select('users', ['email'], ['id' => 1337])` yang misalnya karena kita tidak percaya dengan apa yang dilakukan oleh method `find`. Tapi ORM ada bukan karena tanpa alasan, fitur umum yang dijual oleh ORM salah duanya adalah "association" dan "hooks".
 
 Dengan *query builder* tentu kita bisa melakukan ini:
 
 ```php title="php"
 $db->transaction(
   function($db) {
-    $db->insert('addresses', array( 'address' => 'Jl. Dipayuda' ));
+    $db->insert('addresses', array('address' => 'Jl. Dipayuda'));
     $address_id = $db->id();
-    $db->insert('shipping_address', array( 'address' => 'Jl. Mayjend Panjaitan No.69' ));
+    $db->insert('shipping_address', array('address' => 'Jl. Mayjend Panjaitan No.69'));
     $shipping_address_id = $db->id();
     $db->insert('users',  array('name' => 'krido', 'address_id' => $address_id, 'shipping_address_id' => $shipping_address_id));
   }
@@ -269,8 +269,8 @@ Dengan ORM, mungkin bisa seperti ini:
 
 ```php
 DB::transaction(function() {
-  $address = new Address(array( 'address' => 'Jl. Dipayuda' ));
-  $shipping_address = new ShippingAddress(array( 'address' => 'Jl. Mayjend Panjaitan No.69' ));
+  $address = new Address(array('address' => 'Jl. Dipayuda'));
+  $shipping_address = new ShippingAddress(array('address' => 'Jl. Mayjend Panjaitan No.69'));
   
   $user = User::find(69);
 
@@ -296,7 +296,7 @@ Dengan ORM, mungkin bisa seperti ini:
 
 ```php title="php"
 self::deleting(function($user) {
-  $user->logs()->each( function($log) {
+  $user->logs()->each(function($log) {
     $log->delete();
   });
 });
