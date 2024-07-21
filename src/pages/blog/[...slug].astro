@@ -18,7 +18,9 @@ const frontmatter = post.data;
 const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
-<BlogLayout
+<html>
+  <title>{frontmatter.title} — yuxxeun</title>
+  <BlogLayout
   title={frontmatter.title}
   pubDate={frontmatter.pubDate}
   image={frontmatter.hero}
@@ -30,3 +32,4 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 >
   <Content />
 </BlogLayout>
+</html>
