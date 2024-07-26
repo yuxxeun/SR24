@@ -19,10 +19,14 @@ export const navigation = [
   },
   {
     href: "/bookmark",
-    text: "book",
+    text: "bmrk",
   },
   {
     href: "/secreto",
-    text: "secreto",
+    text: "scrt",
+  },
+  {
+    href: "https://github.com/yuxxeun",
+    text: "+src",
   },
 ];
