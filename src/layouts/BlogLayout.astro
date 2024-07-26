@@ -66,19 +66,19 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       class="pb-8 font-geistSansVariable text-4xl font-bold text-zinc-950 dark:text-zinc-100">
       {title}
     </h1>
-    <div class="mb-8 flex gap-2">
-      <div class="aspect-square overflow-hidden rounded-full">
+    <div class="mb-8 flex gap-2 items-center">
+      <div class="aspect-ratio overflow-hidden rounded-full">
         <Image
           src={authorImage}
           alt="yuxxeun's cute avatar"
           loading="eager"
-          class="aspect-square w-10"
+          class="grayscale w-11 h-11 aspect-ratio"
           width={80}
           height={80}
         />
       </div>
       <p class="text-sm text-zinc-700 dark:text-zinc-400">
-        <span class="block font-semibold">Krido Pambudi</span>
+        <span class="block font-semibold">Krido</span>
         <a
           class="text-zinc-00 block hover:underline dark:text-zinc-50"
           href="https://github.com/yuxxeun"

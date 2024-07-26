@@ -28,5 +28,6 @@ export const navigation = [
   {
     href: "https://github.com/yuxxeun",
     text: "+src",
+    target: '_blank'
   },
 ];
