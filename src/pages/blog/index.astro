@@ -11,15 +11,13 @@ const posts = (await getCollection("blog")).sort(
 
 const title = "blog — yuxxeun";
 const description =
-  "collection of all the blog posts that I have written. I write about web development, programming, and other things that I find interesting.";
+  "i write about any things that feels interesting.";
 ---
 <Layout title={title} description={description}>
   <section class="grid place-items-center text-center">
     <Header title="blog" />
     <p class="mb-10 tracking-tight max-w-prose font-normal italic font-newsreader font-semibold lg:text-2xl text-xl">
-      collection of all the posts that i've written.
-      <br>
-      i write about any things that feels interesting.
+      {description}
     </p>
   </section>
   <SearchBar />

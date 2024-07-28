@@ -4,7 +4,7 @@
     <div v-else-if="error">Error: {{ error }}</div>
     <div v-else>
         <form class="mx-auto text-center flex items-center justify-betwen">
-            <input type="text" disabled placeholder="Give me random message" class="w-full rounded-lg bg-zinc-200/60 p-4 text-sm text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100"/>
+            <input type="text" disabled placeholder="Ups, this section is under development!" class="w-full rounded-lg bg-zinc-200/60 p-4 text-sm text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100"/>
         </form>
         <ul>
             <li class="mt-10" v-for="item in data" :key="item.id">
