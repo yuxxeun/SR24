@@ -10,16 +10,6 @@
 - **Database**: [Supabase](https://supabase.com/)
 - **Deployment**: [Vercel](https://vercel.com)
 
-### Running Locally
-```bash
-git clone https://github.com/yuxxeun/SR24.git
-cd SR24
-bun install
-bun dev
-```
-
-Create a `.env.local` file similar to `.env.example`.
-
 ### License
-SR24 is under [MIT License](./LICENSE).
+SR24 is released under the [MIT License](./LICENSE).
 
