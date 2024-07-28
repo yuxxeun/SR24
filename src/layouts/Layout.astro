@@ -9,7 +9,6 @@ import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import "@styles/base.css";
-import Clock from "@components/Clock";
 
 interface Props {
   title?: string;
@@ -98,7 +97,9 @@ const canonicalURL = new URL(Astro.url).href;
           }
         </ul>
         <div>
-          <Clock client:load/>
+          <a href="https://yuxxeun.openstatus.dev/" target="_blank">
+            <img src="https://yuxxeun.openstatus.dev/badge?theme=dark&size=sm" />
+          </a>
         </div>
         <!-- <button
           id="dark-mode-toggle"
