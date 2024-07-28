@@ -27,7 +27,7 @@ export const navigation = [
   },
   {
     href: "https://github.com/yuxxeun",
-    text: "+src",
+    text: ".git",
     target: '_blank'
   },
 ];
