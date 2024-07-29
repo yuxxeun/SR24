@@ -36,9 +36,9 @@
   }
 }
 
-:root {
+/* :root {
     cursor: crosshair;
-  }
+  } */
 
   ::selection {
     background: #32fff1 !important;

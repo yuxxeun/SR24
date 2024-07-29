@@ -2,12 +2,12 @@
 import { SEO } from "astro-seo";
 import Link from "@components/Link.astro";
 import { defaultMeta, navigation } from "@data/constants";
-import "@fontsource-variable/inter";
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Cursor from '@components/core/Cursor'
 import "@styles/base.css";
 
 interface Props {
@@ -73,10 +73,10 @@ const canonicalURL = new URL(Astro.url).href;
     />
     <SpeedInsights/>
   </head>
-
   <body
     class="bg-zinc-950 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg">
     <SmoothScrooll client:load>
+      <Cursor client:load/>
       <a href="#main-content" class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-800 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm">
         Skip to main content
       </a>
@@ -196,10 +196,6 @@ const canonicalURL = new URL(Astro.url).href;
 
   .dark body::-webkit-scrollbar-thumb {
     @apply bg-zinc-800;
-  }
-
-  body::selection {
-    background-color: rgb(198, 43, 226);
   }
 
   html.lenis,
