@@ -4,24 +4,24 @@
     <div v-else-if="error">
       <div v-html="error"></div>
       <div class="text-center mx-auto mt-7">
-        <button @click="refreshPage" class="px-4 py-2 bg-zinc-200/60 text-md text-zinc-900 rounded-lg">
-          Relaod page
+        <button @click="refreshPage" class="mt-2 text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+          Reload page
         </button>
       </div>
     </div>
     <div v-else>
-      <form @submit.prevent="addComment" class="mx-auto text-center flex items-center justify-between">
-        <input
-          type="text"
+      <form @submit.prevent="addComment" class="mx-auto">
+        <textarea
           v-model="newComment"
-          placeholder="*********************************************************************"
-          class="w-full rounded-lg bg-zinc-200/60 p-4 text-md text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100"
-        />
-        <button
-          type="submit"
-          class="ml-4 px-4 py-2 bg-zinc-200/60 text-md text-zinc-900 rounded-lg">
-          Submit
-        </button>
+          autofocus
+          placeholder="Just say helloo or drop your story here!"
+          class="w-full italic font-newsreader rounded-lg bg-zinc-200/60 p-4 text-md text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100"
+        ></textarea>
+          <button
+            type="submit"
+            class="mt-2 text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+            Submit ->
+          </button>
       </form>
       <ul>
         <li class="mt-10" v-for="item in data" :key="item.id">
