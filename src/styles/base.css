@@ -41,22 +41,22 @@
   }
 
   ::selection {
-    background: #32fff1 !important;
+    background: #ff51e8 !important;
     color: #000000 !important;
   }
 
   ::-moz-selection {
-     background: #32fff1 !important;
+     background: #ff51e8 !important;
     color: #000000 !important;
   }
 
   .dark::selection {
-    background: #32fff1 !important;
+    background: #ff51e8 !important;
     color: #000000 !important;
   }
 
   .dark::-moz-selection {
-   background: #32fff1 !important;
+   background: #ff51e8 !important;
     color: #000000 !important;
   }
 
