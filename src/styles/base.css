@@ -42,22 +42,22 @@
 
   ::selection {
     background: #ff51e8 !important;
-    color: #000000 !important;
+    color: #ffffff !important;
   }
 
   ::-moz-selection {
      background: #ff51e8 !important;
-    color: #000000 !important;
+    color: #ffffff !important;
   }
 
   .dark::selection {
     background: #ff51e8 !important;
-    color: #000000 !important;
+    color: #ffffff !important;
   }
 
   .dark::-moz-selection {
    background: #ff51e8 !important;
-    color: #000000 !important;
+    color: #ffffff !important;
   }
 
   :root {
