@@ -40,6 +40,9 @@ const createSROnlyLabel = text => {
 export default defineConfig({
   site: "https://yuxxeun.vercel.app",
   output: 'server',
+  experimental: {
+    serverIslands: true
+  },
   adapter: vercel({
     webAnalytics: { enabled:true }
   }),
