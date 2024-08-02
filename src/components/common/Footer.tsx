@@ -16,14 +16,13 @@ export default function Footer() {
       setMessage(messages[randomIndex]);
     };
 
-    // Update message initially
     updateMessage();
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []); 
 
   return (
     <footer className="my-12">
-      <div className="mx-auto max-w-4xl px-6 text-center dark:text-zinc-400 lg:px-2">
-        <p className="text-lg text-zinc-600 flex items-center justify-center font-newsreader italic">
+      <div className="mx-auto max-w-4xl px-6 text-center lg:px-2">
+        <p className="text-xl text-zinc-400 flex items-center justify-center font-newsreader italic">
           {message}
         </p>
       </div>

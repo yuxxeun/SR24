@@ -4,8 +4,8 @@
     <div v-else-if="error">
       <div v-html="error"></div>
       <div class="text-center mx-auto mt-7">
-        <button @click="refreshPage" class="mt-2 text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
-          Reload page
+        <button @click="refreshPage" class="mt-2 text-center font-bold w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+          Back ->
         </button>
       </div>
     </div>
@@ -19,7 +19,7 @@
         ></textarea>
           <button
             type="submit"
-            class="mt-2 text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+            class="mt-2 font-bold text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
             Submit ->
           </button>
       </form>
@@ -82,7 +82,7 @@
 
       const addComment = async () => {
         if (newComment.value.trim().length < 5) {
-          error.value = `😾 Hey you submit empty comment.<br/>Anyway, comment must be at least 5 characters long.`;
+          error.value = `Ooops!!!!!<br/> Comment must be at least 5 characters.`;
           return;
         }
 
