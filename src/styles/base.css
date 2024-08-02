@@ -56,7 +56,7 @@
   }
 
   .dark::-moz-selection {
-   background: #ff51e8 !important;
+    background: #ff51e8 !important;
     color: #ffffff !important;
   }
 

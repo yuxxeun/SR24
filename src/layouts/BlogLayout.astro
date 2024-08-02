@@ -2,10 +2,10 @@
 import Layout from "@layouts/Layout.astro";
 import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
-import authorImage from "../../public/emoji.jpg";
+import authorImage from "../../public/emoji.png";
 import type { ImageMetadata } from "astro";
 import { defaultMeta } from "@data/constants";
-import Header from "@components/Header.astro";
+import Header from "@components/common/Header.astro";
 
 interface Props {
   title: string;
@@ -67,7 +67,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       {title}
     </h1>
     <div class="mb-8 flex gap-2 items-center">
-      <div class="aspect-ratio overflow-hidden rounded-full">
+      <div class="aspect-ratio overflow-hidden">
         <Image
           src={authorImage}
           alt="yuxxeun's cute avatar"

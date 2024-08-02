@@ -6,7 +6,7 @@ export async function GET(context) {
   return rss({
     stylesheet: "/style.xsl",
     title: "yuxxeun",
-    description: "RSS feed for yuxxeun page.",
+    description: "RSS feed yuxxeun digital garden.",
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,

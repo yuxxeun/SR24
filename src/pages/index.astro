@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import Blog from "@components/Blog.astro";
 import { Picture } from 'astro:assets';
-import myImage from '../../public/emoji.jpg';
+import myImage from '../../public/emoji.png';
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -15,7 +15,7 @@ const posts = (await getCollection("blog")).sort(
     <div class="grid place-items-center">
         <Picture src={myImage}
           alt="yuxxeun emoji"
-          loading="eager" decoding="async" class="grayscale rounded-full aspect-square object-cover w-36 h-36" />
+          loading="eager" decoding="async" class="grayscale aspect-square object-cover w-36 h-36" />
         <p class="-mt-3 mt-5 max-w-prose font-newsreader font-semibold italic lg:text-2xl text-xl">
           thoughts, stories and very ideas.
           <br />

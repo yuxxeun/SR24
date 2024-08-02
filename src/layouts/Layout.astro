@@ -1,13 +1,15 @@
 ---
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import "@styles/base.css";
 import { SEO } from "astro-seo";
 import Link from "@components/Link.astro";
 import { defaultMeta, navigation } from "@data/constants";
-import "@fontsource-variable/newsreader";
-import "@fontsource-variable/newsreader/wght-italic.css";
+import Footer from "@components/common/Footer";
 import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
 import SpeedInsights from "@vercel/speed-insights/astro";
-import "@styles/base.css";
+
 
 interface Props {
   title?: string;
@@ -59,7 +61,7 @@ const canonicalURL = new URL(Astro.url).href;
         creator: "@yuxxeun"
       }}
       extend={{
-        link: [{ rel: "icon", href: "/emoji.jpg" }],
+        link: [{ rel: "icon", href: "/emoji.png" }],
         meta: [
           {
             name: "twitter:summary_large_image",
@@ -72,6 +74,7 @@ const canonicalURL = new URL(Astro.url).href;
     />
     <SpeedInsights/>
   </head>
+  
   <body
     class="bg-zinc-950 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg">
     <SmoothScrooll client:load>
@@ -122,20 +125,7 @@ const canonicalURL = new URL(Astro.url).href;
         </noscript>
         <slot />
       </main>
-      <footer class="my-12">
-        <div
-          class="lg:text-lg md:text-md sm:text-sm mx-auto max-w-4xl px-6 text-center text-zinc-600 dark:text-zinc-400 lg:px-2">
-            <p class="flex items-center justify-center font-geistMonoVariable">
-            <svg class="mr-2 animate-pulse" data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="15" style="color: currentcolor;"><path d="M11.25 4.25V3.5C9.35033 2.86678 6 2.58921 6 0C6 2.58921 2.64967 2.86678 0.75 3.5V9.52717C0.75 11.2011 1.67915 12.7367 3.16197 13.5134L4.5 14.2143" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" fill="transparent"></path>
-              <circle cx="11.5" cy="11.5" r="3.875" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" fill="transparent"></circle>
-              <path d="M8 11.5H15.25" stroke="currentColor" stroke-linejoin="bevel"></path>
-              <path d="M10.75 15V15C10.0964 12.7124 10.0964 10.2876 10.75 8V8" stroke="currentColor" stroke-linejoin="bevel"></path>
-              <path d="M12.25 15V15C12.9036 12.7124 12.9036 10.2876 12.25 8V8" stroke="currentColor" stroke-linejoin="bevel"></path>
-            </svg>
-               Find flow.
-          </p>
-        </div>
-      </footer>
+      <Footer client:load/>
     </SmoothScrooll>
   </body>
 </html>
