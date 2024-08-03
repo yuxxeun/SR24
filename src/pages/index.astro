@@ -3,7 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import Blog from "@components/Blog.astro";
 import { Picture } from 'astro:assets';
-import myImage from '../../public/emoji.png';
+import myImage from '../../public/krido.png';
+import LoadingScreen from "@components/core/Loading";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -12,21 +13,18 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout>
   <section class="text-center">
+    <LoadingScreen client:load/>
     <div class="grid place-items-center">
         <Picture src={myImage}
           alt="yuxxeun emoji"
-          loading="eager" decoding="async" class="grayscale aspect-square object-cover w-36 h-36" />
+          loading="eager" decoding="async" class="grayscale-0 aspect-square object-cover w-36 h-36" />
         <p class="-mt-3 mt-5 max-w-prose font-newsreader italic lg:text-2xl text-xl">
           thoughts, stories and very ideas.
-          <br />
         </p>
     </div>
   </section>
   <section class="pt-10">
-    <h2 class="mt-12 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-        Recent posts
-    </h2>
-    <ul class="mt-10 text-lg grid grid-cols-1 gap-6">
+    <ul class="mt-12 text-lg grid grid-cols-1 gap-6">
       {posts.slice(0, 3).map((post) => <Blog {...post} />)}
     </ul>
     <a class="mt-7 inline-block text-lg transition-colors hover:text-zinc-400 dark:hover:text-zinc-50"

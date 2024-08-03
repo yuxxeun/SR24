@@ -35,6 +35,7 @@ const canonicalURL = new URL(Astro.url).href;
 <!doctype html>
 <html lang="en-US" class="scroll-smooth dark:[color-scheme:dark]">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
   <head>
     {
       pubDate && (
@@ -61,7 +62,7 @@ const canonicalURL = new URL(Astro.url).href;
         creator: "@yuxxeun"
       }}
       extend={{
-        link: [{ rel: "icon", href: "/emoji.png" }],
+        link: [{ rel: "icon", href: "/krido.png" }],
         meta: [
           {
             name: "twitter:summary_large_image",
@@ -76,9 +77,9 @@ const canonicalURL = new URL(Astro.url).href;
   </head>
   
   <body
-    class="bg-zinc-950 pt-10 antialiased selection:bg-zinc-700 selection:text-zinc-100 dark:bg-zinc-950 dark:selection:bg-zinc-500 dark:selection:text-white 2xl:text-lg">
+    class="bg-fixed z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] pt-10 antialiased bg-zinc-950 dark:bg-zinc-950 2xl:text-lg">
     <SmoothScrooll client:load>
-      <a href="#main-content" class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-800 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm">
+      <a href="#main-content" class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-200 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm">
         Skip to main content
       </a>
       <nav
@@ -97,11 +98,15 @@ const canonicalURL = new URL(Astro.url).href;
             ))
           }
         </ul>
-        <div>
-          <a href="https://yuxxeun.openstatus.dev/" target="_blank">
-            <img src="https://yuxxeun.openstatus.dev/badge?theme=dark&size=sm" />
-          </a>
-        </div>
+       
+          <div>
+            <a href="https://yuxxeun.openstatus.dev/" target="_blank" class="border-2 border-zinc-600 px-2 rounded-full flex items-center justisy-between">
+              <p class="text-zinc-400 text-sm text-base font-semibold hover:text-zinc-300">
+                system status <div class="ml-2 animate-pulse h-2 rounded-full w-2 bg-green-500"></div>
+              </p>
+            </a>
+          </div>
+
         <!-- <button
           id="dark-mode-toggle"
           class="text-zinc-900 hover:text-zinc-600 focus:outline-none dark:text-zinc-100 dark:hover:text-zinc-300"

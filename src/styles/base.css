@@ -3,14 +3,8 @@
 @tailwind utilities;
 
 @layer components {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply flex scroll-mt-20 items-center gap-2;
-    font-weight: bold;
+   *:is(h1, h2, h3, h4, h5, h6) {
+    @apply flex items-center gap-2 scroll-mt-20;
   }
 }
 
@@ -41,23 +35,23 @@
   }
 
   ::selection {
-    background: #ff51e8 !important;
-    color: #ffffff !important;
+    background:  rgba(77, 75, 183, 0.3);
+    color: #ffffff;
   }
 
   ::-moz-selection {
-     background: #ff51e8 !important;
-    color: #ffffff !important;
+    background:  rgba(77, 75, 183, 0.3);
+    color: #ffffff;
   }
 
   .dark::selection {
-    background: #ff51e8 !important;
-    color: #ffffff !important;
+    background:  rgba(77, 75, 183, 0.3);
+    color: #ffffff;
   }
 
   .dark::-moz-selection {
-    background: #ff51e8 !important;
-    color: #ffffff !important;
+    background: rgba(77, 75, 183, 0.3);
+    color: #ffffff;
   }
 
   :root {

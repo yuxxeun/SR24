@@ -4,7 +4,7 @@
     <div v-else-if="error">
       <div v-html="error"></div>
       <div class="text-center mx-auto mt-7">
-        <button @click="refreshPage" class="mt-2 text-center font-bold w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+        <button @click="refreshPage" class="mt-2 text-center font-bold w-auto px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
           Back ->
         </button>
       </div>
@@ -32,7 +32,7 @@
             <br />
             <span class="text-sm font-newsreader">
               <span class="font-geistMonoVariable">
-                {{ new Date(item.created_at) }}
+                 {{ new Date(item.created_at).toLocaleString('en-US', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZoneName: 'short' }) }}
               </span>
             </span>
           </p>
@@ -82,7 +82,11 @@
 
       const addComment = async () => {
         if (newComment.value.trim().length < 5) {
-          error.value = `Ooops!!!!!<br/> Comment must be at least 5 characters.`;
+          error.value = `<div class="text-center">
+                            <img src="/loader.png" class="mx-auto w-48 h-48 mb-10">
+                            <p class="font-bold text-2xl">Whooosh!</p> 
+                            <p class="text-lg">Comment must be at least 5 characters.</p>
+                          </div>`
           return;
         }
 

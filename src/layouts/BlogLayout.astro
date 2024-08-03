@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
-import authorImage from "../../public/emoji.png";
+import authorImage from "../../public/krido.png";
 import type { ImageMetadata } from "astro";
 import { defaultMeta } from "@data/constants";
 import Header from "@components/common/Header.astro";
@@ -63,24 +63,24 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       </span>
     </time>
     <h1
-      class="pb-8 font-geistSansVariable text-4xl font-bold text-zinc-950 dark:text-zinc-100">
+      class="pb-8 font-geistSansVariable text-4xl font-bold text-zinc-100 dark:text-zinc-100">
       {title}
     </h1>
-    <div class="mb-8 flex gap-2 items-center">
+    <!-- <div class="mb-8 flex gap-2 items-center">
       <div class="aspect-ratio overflow-hidden">
         <Image
           src={authorImage}
           alt="yuxxeun's cute avatar"
           loading="eager"
-          class="grayscale w-11 h-11 aspect-ratio"
+          class="w-11 h-11 aspect-ratio"
           width={80}
           height={80}
         />
       </div>
-      <p class="text-sm text-zinc-700 dark:text-zinc-400">
-        <span class="block font-semibold">Krido</span>
+      <p class="text-md text-zinc-400 dark:text-zinc-400 ml-1.5">
+        <span class="block font-semibold -mb-1">Your lovely dictator</span>
         <a
-          class="text-zinc-00 block hover:underline dark:text-zinc-50"
+          class="text-zinc-50 block hover:underline dark:text-zinc-50"
           href="https://github.com/yuxxeun"
           target="_blank"
           rel="noopener noreferrer"
@@ -88,7 +88,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
           @{defaultMeta.author}
         </a>
       </p>
-    </div>
+    </div> -->
     <Image
       src={image}
       alt={imageAlt}
@@ -107,7 +107,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
     )
   }
   <article
-    class="prose text-lg sm:text-xl max-w-none dark:prose-invert prose-a:text-zinc-600 prose-a:underline prose-a:decoration-zinc-500 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-300 prose-img:rounded-lg dark:prose-headings:text-zinc-100 dark:prose-a:text-zinc-300 dark:prose-code:text-zinc-300"
+    class="prose text-lg sm:text-xl max-w-none text-zinc-300 dark:prose-invert prose-a:underline prose-a:decoration-zinc-300 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-300 prose-img:rounded-lg dark:prose-headings:text-zinc-100 dark:prose-code:text-zinc-300"
   >
     <slot />
     <hr />

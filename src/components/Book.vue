@@ -7,7 +7,7 @@
             <li v-for="item in data" :key="item.id" class="mt-10">
                 <p>
                     <span class="text-black dark:text-white text-lg font-bold">
-                       <a :href="item.link" target="_blank">
+                       <a :href="item.link" target="_blank" :title="item.link">
                         {{ item.title }}
                        </a>
                     </span>

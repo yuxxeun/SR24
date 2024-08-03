@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer className="my-12">
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-2">
-        <p className="text-xl text-zinc-400 flex items-center justify-center font-newsreader italic">
+        <p className="text-xl text-zinc-400 dark:text-zinc-400 flex items-center justify-center font-newsreader italic">
           {message}
         </p>
       </div>
