@@ -83,7 +83,7 @@
       const addComment = async () => {
         if (newComment.value.trim().length < 5) {
           error.value = `<div class="text-center">
-                            <img src="/1479.gif" class="mx-auto w-48 h-48 mb-10">
+                            <img src="/ghost.gif" class="mx-auto w-48 h-48 mb-10">
                             <p class="font-bold text-2xl">Whooosh!</p> 
                             <p class="text-lg">Comment must be at least 5 characters.</p>
                           </div>`

@@ -32,7 +32,7 @@ const LoadingScreen: React.FC = () => {
         }`}
       >
         <div className="flex space-x-2 justify-center items-center">
-          <img src='/1479.gif' alt='loader ghost'
+          <img src='/ghost.gif' alt='loader ghost'
             height={200}
             width={200}
             className="object-fit"
