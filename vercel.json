@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "command": "bun run build"
+      "command": "npm run build"
     }
   },
   "headers": [
