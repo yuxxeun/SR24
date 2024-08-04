@@ -1,5 +1,6 @@
 # SR24 ✨
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
+
 - **Framework**: [Astro](https://astro.build)
 - **Package Manager**: [Bun](https://bun.sh)
 - **Styling**: [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
@@ -9,6 +10,7 @@
     - [@astrojs/vercel](https://docs.astro.build/en/guides/integrations-guide/vercel/)
 - **Database**: [Supabase](https://supabase.com/)
 - **Deployment**: [Vercel](https://vercel.com)
+- **License**: [MIT License](./LICENSE).
 
-### License
-SR24 is released under the [MIT License](./LICENSE).
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/home)
+

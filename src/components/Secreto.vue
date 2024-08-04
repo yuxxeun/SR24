@@ -1,16 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="error">
-      <div v-html="error"></div>
-      <div class="text-center mx-auto mt-7">
-        <button @click="refreshPage" class="mt-2 text-center font-bold w-auto px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
-          Back ->
-        </button>
-      </div>
-    </div>
-    <div v-else>
-      <form @submit.prevent="addComment" class="mx-auto">
+  <form @submit.prevent="addComment" class="mx-auto">
         <textarea
           v-model="newComment"
           autofocus
@@ -23,8 +13,18 @@
             Submit ->
           </button>
       </form>
+    <div v-if="loading" class="mt-10 text-center">Loading...</div>
+    <div v-else-if="error">
+      <div v-html="error"></div>
+      <div class="text-center mx-auto mt-7">
+        <button @click="refreshPage" class="mt-2 text-center font-bold w-auto px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
+          Back ->
+        </button>
+      </div>
+    </div>
+    <div v-else>
       <ul>
-        <li class="mt-10" v-for="item in data" :key="item.id">
+        <li class="mt-10 animate-fade-up animate-once animate-duration-1000 animate-ease-linear" v-for="item in data" :key="item.id">
           <p>
             <span class="text-black dark:text-white text-lg font-bold">
               {{ item.txt }}

@@ -12,9 +12,9 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout>
-  <section class="text-center">
+  <section class="text-center ">
     <LoadingScreen client:load/>
-    <div class="grid place-items-center">
+    <div class="grid place-items-center animate-fade-down animate-once animate-duration-1000 animate-delay-[2500ms] animate-ease-linear">
         <Picture src={myImage}
           alt="yuxxeun emoji"
           loading="eager" decoding="async" class="grayscale-0 aspect-square object-cover w-36 h-36" />
@@ -24,7 +24,7 @@ const posts = (await getCollection("blog")).sort(
     </div>
   </section>
   <section class="pt-10">
-    <ul class="mt-12 text-lg grid grid-cols-1 gap-6">
+    <ul class="mt-12 text-lg grid grid-cols-1 gap-6 animate-fade-up animate-once animate-duration-1000 animate-delay-[2500ms] animate-ease-linear">
       {posts.slice(0, 3).map((post) => <Blog {...post} />)}
     </ul>
     <a class="mt-7 inline-block text-lg transition-colors hover:text-zinc-400 dark:hover:text-zinc-50"

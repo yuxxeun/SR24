@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
+    <div v-if="loading" class="mt-10 text-center">Loading...</div>
     <div v-else-if="error">Error: {{ error }}</div>
     <div v-else>
         <ul>
-            <li v-for="item in data" :key="item.id" class="mt-10">
+            <li v-for="item in data" :key="item.id" class="mt-10 animate-fade-up animate-once animate-duration-1000 animate-ease-linear">
                 <p>
                     <span class="text-black dark:text-white text-lg font-bold">
                        <a :href="item.link" target="_blank" :title="item.link">
