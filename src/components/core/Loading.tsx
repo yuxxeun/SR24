@@ -27,7 +27,7 @@ const LoadingScreen: React.FC = () => {
     !isLoaded && (
       <div
         id="loading-screen"
-        className={`fixed top-0 left-0 w-full min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] flex items-center justify-center z-50 transition-transform duration-1000 ${
+        className={`fixed border-b-2 border-[#7877C6] top-0 left-0 w-full min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] flex items-center justify-center z-50 transition-transform duration-1000 ${
           isExiting ? '-translate-y-full' : 'translate-y-0'
         }`}
       >
