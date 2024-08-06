@@ -5,21 +5,18 @@
     <div v-else>
         <ul>
             <li v-for="item in data" :key="item.id" class="mt-10 animate-fade-up animate-once animate-duration-1000 animate-ease-linear">
-                <p>
-                    <span class="text-black dark:text-white text-lg font-bold">
+                    <h1 class="text-black dark:text-white text-lg font-bold">
                        <a :href="item.link" target="_blank" :title="item.link">
                         {{ item.title }}
                        </a>
-                    </span>
-                    <br/>
-                    <span class="text-lg font-newsreader italic">
-                        by <span class="font-bold">{{ item.author }}</span>
-                    </span>
-                    <br/>
-                    <span class="text-sm font-newsreader italic">
-                        <span class="font-geistMonoVariable">{{ item.time }}</span>
-                    </span>
-                </p>
+                    </h1>
+                    <p class="text-lg font-newsreader">
+                      <span class="italic">from: </span>
+                      <span class="">{{ item.author }}</span>
+                    </p>
+                    <p class="text-sm font-newsreader italic">
+                        {{ item.time }}
+                    </p>
             </li>
         </ul>
     </div>

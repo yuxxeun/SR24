@@ -4,9 +4,9 @@
         <textarea
           v-model="newComment"
           autofocus
-          placeholder="Just say helloo or drop your story here!"
-          class="w-full italic font-newsreader rounded-lg bg-zinc-200/60 p-4 text-md text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100"
-        ></textarea>
+          placeholder="Type your secrets..."
+          class="w-full italic font-newsreader rounded-lg bg-zinc-200/60 p-4 text-md text-zinc-900 shadow-sm focus:outline-none dark:bg-zinc-900 dark:text-zinc-100">
+        </textarea>
           <button
             type="submit"
             class="mt-2 font-bold text-center w-full px-4 py-2 bg-zinc-200/60 text-sm text-zinc-900 rounded-lg">
@@ -25,17 +25,12 @@
     <div v-else>
       <ul>
         <li class="mt-10 animate-fade-up animate-once animate-duration-1000 animate-ease-linear" v-for="item in data" :key="item.id">
-          <p>
-            <span class="text-black dark:text-white text-lg font-bold">
+            <h1 class="text-black dark:text-white text-lg font-bold mb-1">
               {{ item.txt }}
-            </span>
-            <br />
-            <span class="text-sm font-newsreader">
-              <span class="font-geistMonoVariable">
-                 {{ new Date(item.created_at).toLocaleString('en-US', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZoneName: 'short' }) }}
-              </span>
-            </span>
-          </p>
+            </h1>
+            <p class="text-sm font-geistMonoVariable tracking-tight">
+              {{ new Date(item.created_at).toLocaleString('en-US', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZoneName: 'short' }) }}
+            </p>
         </li>
       </ul>
     </div>
