@@ -26,6 +26,10 @@ export const navigation = [
     text: "scrt",
   },
   {
+    href: "/works",
+    text: "wrks",
+  },
+  {
     href: "https://github.com/yuxxeun",
     text: ".git",
     target: '_blank'

@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/common/Header.astro";
+import Works from "@components/Works.vue";
+
+const title = 'works — yuxxeun'
+const description = 'a collection of selected works'
+---
+
+<Layout title={title} description={description}>
+    <section class="grid place-items-center text-center">
+        <Header title="works" />
+        <p class="mb-10 tracking-tight max-w-prose font-normal italic font-newsreader lg:text-2xl text-xl">
+            {description}
+        </p>
+    </section>
+    <ul class="text-xl grid grid-cols-1 gap-6">
+        <Works client:load/>
+    </ul>
+</Layout>
