@@ -3,18 +3,20 @@ import Book from "@components/Book.vue";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/common/Header.astro";
 
-const title = `bookmark's — yuxxeun`
-const description = `an interesting collection to read.`
+const title = `bookmark's — yuxxeun`;
+const description = `an interesting collection to read.`;
 ---
 
 <Layout title={title} description={description}>
-    <section class="grid place-items-center text-center">
-        <Header title="bookmark's" />
-        <p class="tracking-tight max-w-prose font-normal italic font-newsreader lg:text-2xl text-xl">
-            {description}
-        </p>
-    </section>
-    <ul class="text-xl grid grid-cols-1 gap-6">
-        <Book client:load server:defer/>
-    </ul>
+  <section class="grid place-items-center text-center">
+    <Header title="bookmark's" />
+    <p
+      class="max-w-prose font-newsreader text-xl font-normal italic tracking-tight lg:text-2xl"
+    >
+      {description}
+    </p>
+  </section>
+  <ul class="grid grid-cols-1 gap-6 text-xl">
+    <Book client:load server:defer />
+  </ul>
 </Layout>

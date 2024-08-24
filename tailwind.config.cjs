@@ -1,4 +1,4 @@
-import { transform } from 'typescript';
+import { transform } from "typescript";
 
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const messages: string[] = [
   "Find flow.",
@@ -8,7 +8,7 @@ const messages: string[] = [
 ];
 
 export default function Footer() {
-  const [message, setMessage] = useState<string>('');
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     const updateMessage = () => {
@@ -17,12 +17,12 @@ export default function Footer() {
     };
 
     updateMessage();
-  }, []); 
+  }, []);
 
   return (
     <footer className="my-12">
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-2">
-        <p className="text-xl text-zinc-400 dark:text-zinc-400 flex items-center justify-center font-newsreader italic">
+        <p className="flex items-center justify-center font-newsreader text-xl italic text-zinc-400 dark:text-zinc-400">
           {message}
         </p>
       </div>

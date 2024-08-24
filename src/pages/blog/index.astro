@@ -10,31 +10,32 @@ const posts = (await getCollection("blog")).sort(
 );
 
 const title = "blog — yuxxeun";
-const description =
-  "i write about any things that feels interesting.";
+const description = "i write about any things that feels interesting.";
 ---
+
 <Layout title={title} description={description}>
   <section class="grid place-items-center text-center">
     <Header title="blog" />
-    <p class="mb-10 tracking-tight max-w-prose font-normal italic font-newsreader lg:text-2xl text-xl">
+    <p
+      class="mb-10 max-w-prose font-newsreader text-xl font-normal italic tracking-tight lg:text-2xl"
+    >
       {description}
     </p>
   </section>
   <SearchBar />
-  <h2 class="mt-12 text-2xl text-zinc-100">
-    All posts
-  </h2>
-  <ul class="mt-6 text-lg grid grid-cols-1 gap-6 animate-fade-up animate-once animate-duration-1000 animate-ease-linear">
+  <h2 class="mt-12 text-2xl text-zinc-100">All posts</h2>
+  <ul
+    class="mt-6 grid animate-fade-up grid-cols-1 gap-6 text-lg animate-duration-1000 animate-once animate-ease-linear"
+  >
     {posts.map((p) => <Blog {...p} />)}
   </ul>
   <section class="mt-20 grid place-items-center text-center">
     <Header title="Want to stay updated?" />
-    <p class="mb-8 mt-3 text-lg max-w-prose">
-        Hey, you can subscribe my 
-        <a class="underline" href="/rss.xml">RSS feed.</a>
-        <br/>
-        With this way, you can stay up to date to my latest posts.
+    <p class="mb-8 mt-3 max-w-prose text-lg">
+      Hey, you can subscribe my
+      <a class="underline" href="/rss.xml">RSS feed.</a>
+      <br />
+      With this way, you can stay up to date to my latest posts.
     </p>
   </section>
 </Layout>
-

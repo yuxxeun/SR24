@@ -26,7 +26,8 @@ function Search({ searchList }) {
     <div>
       <label
         htmlFor="search"
-        className="sr-only mb-2 text-sm font-medium text-zinc-900 dark:text-white">
+        className="sr-only mb-2 text-sm font-medium text-zinc-900 dark:text-white"
+      >
         Search
       </label>
       <div className="relative">

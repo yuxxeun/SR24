@@ -10,7 +10,6 @@ import Callout from "@components/MDX/Callout.astro";
 import SmoothScrooll from "@components/core/SmoothScroll";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-
 interface Props {
   title?: string;
   description?: string;
@@ -36,50 +35,53 @@ const canonicalURL = new URL(Astro.url).href;
 <html lang="en-US" class="scroll-smooth dark:[color-scheme:dark]">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <head>
-    {
-      pubDate && (
-        <meta
-          property="article:published_time"
-          content={pubDate.toISOString()}
-        />
-      )
-    }
-     <SEO
-      titleDefault={title}
-      description={description}
-      charset="UTF-8"
-      openGraph={{
-        basic: {
-          title: "yuxxeun",
-          url: "yuxxeun.vercel.app",
-          type: "website",
-          image: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
-        }
-      }}
-      canonical={canonicalURL}
-      twitter={{
-        creator: "@yuxxeun"
-      }}
-      extend={{
-        link: [{ rel: "icon", href: "/krido.png" }],
-        meta: [
-          {
-            name: "twitter:summary_large_image",
-            content: "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
-          },
-          { name: "twitter:title", content: title },
-          { name: "twitter:description", content: description },
-        ],
-      }}
-    />
-    <SpeedInsights/>
-  </head>
-  
+
+  {
+    pubDate && (
+      <meta property="article:published_time" content={pubDate.toISOString()} />
+    )
+  }
+  <SEO
+    titleDefault={title}
+    description={description}
+    charset="UTF-8"
+    openGraph={{
+      basic: {
+        title: "yuxxeun",
+        url: "yuxxeun.vercel.app",
+        type: "website",
+        image:
+          "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
+      },
+    }}
+    canonical={canonicalURL}
+    twitter={{
+      creator: "@yuxxeun",
+    }}
+    extend={{
+      link: [{ rel: "icon", href: "/krido.png" }],
+      meta: [
+        {
+          name: "twitter:summary_large_image",
+          content:
+            "https://raw.githubusercontent.com/yuxxeun/SR24/main/public/static/banner.png",
+        },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+      ],
+    }}
+  />
+  <SpeedInsights />
+
+
   <body
-    class="bg-fixed z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] pt-10 antialiased bg-zinc-950 dark:bg-zinc-950 2xl:text-lg">
+    class="z-[-2] h-screen w-screen bg-zinc-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] bg-fixed pt-10 antialiased dark:bg-zinc-950 2xl:text-lg"
+  >
     <SmoothScrooll client:load>
-      <a href="#main-content" class="absolute font-geistSansVariable top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-200 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm">
+      <a
+        href="#main-content"
+        class="font-geistSansVariable absolute top-1 -translate-x-full rounded-r-full border-y border-r border-transparent bg-zinc-300 px-4 py-1.5 text-xs font-medium text-zinc-200 opacity-0 transition-transform duration-300 focus:translate-x-0 focus:opacity-100 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:focus:border-zinc-900 lg:top-[41px] lg:py-2 lg:text-sm"
+      >
         Skip to main content
       </a>
       <nav
@@ -89,7 +91,7 @@ const canonicalURL = new URL(Astro.url).href;
           "max-w-3xl": !wide,
         }}
       >
-        <ul class="flex justify-evenly lg:space-x-6 space-x-4 font-bold">
+        <ul class="flex justify-evenly space-x-4 font-bold lg:space-x-6">
           {
             navigation.map((item) => (
               <li>
@@ -98,14 +100,23 @@ const canonicalURL = new URL(Astro.url).href;
             ))
           }
         </ul>
-       
-          <div>
-            <a href="https://yuxxeun.openstatus.dev/" target="_blank" class="border-2 border-green-500 hover:border-green-300 bg-green-700/20 px-2 rounded-full flex items-center justisy-between">
-              <p class="text-green-400 text-sm font-semibold text-base hover:text-green-300">
-                status <div class="ml-2 animate-pulse h-1.5 w-1.5 lg:h-2 lg:w-2 rounded-full  bg-green-500 hover:bg-green-300"></div>
-              </p>
-            </a>
-          </div>
+
+        <div>
+          <a
+            href="https://yuxxeun.openstatus.dev/"
+            target="_blank"
+            class="justisy-between flex items-center rounded-full border-2 border-green-500 bg-green-700/20 px-2 hover:border-green-300"
+          >
+            <p
+              class="text-base text-sm font-semibold text-green-400 hover:text-green-300"
+            >
+              status <div
+                class="ml-2 h-1.5 w-1.5 animate-pulse rounded-full bg-green-500 hover:bg-green-300 lg:h-2 lg:w-2"
+              >
+              </div>
+            </p>
+          </a>
+        </div>
 
         <!-- <button
           id="dark-mode-toggle"
@@ -121,7 +132,8 @@ const canonicalURL = new URL(Astro.url).href;
         class:list={{
           "max-w-4xl": wide,
           "max-w-3xl": !wide,
-        }}>
+        }}
+      >
         <noscript>
           <Callout type="error" title="NOTICE">
             Some features on this website won't work without JavaScript such as
@@ -130,85 +142,83 @@ const canonicalURL = new URL(Astro.url).href;
         </noscript>
         <slot />
       </main>
-      <Footer client:load/>
+      <Footer client:load />
     </SmoothScrooll>
-  </body>
-</html>
+  </body><script is:inline async>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const darkClass = "dark";
+    const htmlTag = document.querySelector("html");
 
-<script is:inline async>
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  const darkClass = "dark";
-  const htmlTag = document.querySelector("html");
-
-  function applyDarkMode(isDark) {
-    htmlTag.classList.toggle(darkClass, isDark);
-    htmlTag.setAttribute("data-theme", isDark ? "min-dark" : "min-light");
-    const sunIcon = document.querySelector(".sun-icon");
-    const moonIcon = document.querySelector(".moon-icon");
-    sunIcon.classList.toggle("hidden", isDark);
-    moonIcon.classList.toggle("hidden", !isDark);
-  }
-
-  function getCookie(name) {
-    const value = `; `;
-    const parts = document.cookie.split(value);
-    for (let i = 0; i < parts.length; i++) {
-      const part = parts[i].split("=");
-      if (part[0].trim() === name) {
-        return part[1];
-      }
+    function applyDarkMode(isDark) {
+      htmlTag.classList.toggle(darkClass, isDark);
+      htmlTag.setAttribute("data-theme", isDark ? "min-dark" : "min-light");
+      const sunIcon = document.querySelector(".sun-icon");
+      const moonIcon = document.querySelector(".moon-icon");
+      sunIcon.classList.toggle("hidden", isDark);
+      moonIcon.classList.toggle("hidden", !isDark);
     }
-    return null;
-  }
 
-  function setCookie(name, value, expirationDays) {
-    const date = new Date();
-    date.setTime(date.getTime() + expirationDays * 24 * 60 * 60 * 1000);
-    const expires = `expires=${date.toUTCString()}`;
-    document.cookie = `${name}=${value}; ${expires}; path=/`;
-  }
+    function getCookie(name) {
+      const value = `; `;
+      const parts = document.cookie.split(value);
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i].split("=");
+        if (part[0].trim() === name) {
+          return part[1];
+        }
+      }
+      return null;
+    }
 
-  const isDarkMode = getCookie("darkMode") !== "false";
-  applyDarkMode(isDarkMode);
+    function setCookie(name, value, expirationDays) {
+      const date = new Date();
+      date.setTime(date.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+      const expires = `expires=${date.toUTCString()}`;
+      document.cookie = `${name}=${value}; ${expires}; path=/`;
+    }
 
-  darkModeToggle.addEventListener("click", () => {
-    const isDark = htmlTag.classList.contains(darkClass);
-    applyDarkMode(!isDark);
-    setCookie("darkMode", !isDark, 30);
-  });
-</script>
+    const isDarkMode = getCookie("darkMode") !== "false";
+    applyDarkMode(isDarkMode);
 
-<style>
-  body::-webkit-scrollbar {
-    width: 8px;
-  }
+    darkModeToggle.addEventListener("click", () => {
+      const isDark = htmlTag.classList.contains(darkClass);
+      applyDarkMode(!isDark);
+      setCookie("darkMode", !isDark, 30);
+    });
+  </script>
 
-  body::-webkit-scrollbar-thumb {
-    @apply bg-zinc-400;
-  }
+  <style>
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
 
-  .dark body::-webkit-scrollbar-thumb {
-    @apply bg-zinc-800;
-  }
+    body::-webkit-scrollbar-thumb {
+      @apply bg-zinc-400;
+    }
 
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
+    .dark body::-webkit-scrollbar-thumb {
+      @apply bg-zinc-800;
+    }
 
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
 
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
 
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
 
-  .lenis.lenis-smooth iframe {
-    pointer-events: none;
-  }
-</style>
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    .lenis.lenis-smooth iframe {
+      pointer-events: none;
+    }
+  </style>
+</html>

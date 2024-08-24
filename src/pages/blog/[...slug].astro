@@ -21,15 +21,15 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 <html>
   <title>{frontmatter.title} — yuxxeun</title>
   <BlogLayout
-  title={frontmatter.title}
-  pubDate={frontmatter.pubDate}
-  image={frontmatter.hero}
-  imageAlt={frontmatter.heroAlt}
-  description={frontmatter.description}
-  url={post.slug}
-  updatedDate={frontmatter.updatedDate}
-  readingTime={remarkPluginFrontmatter.minutesRead}
->
-  <Content />
-</BlogLayout>
+    title={frontmatter.title}
+    pubDate={frontmatter.pubDate}
+    image={frontmatter.hero}
+    imageAlt={frontmatter.heroAlt}
+    description={frontmatter.description}
+    url={post.slug}
+    updatedDate={frontmatter.updatedDate}
+    readingTime={remarkPluginFrontmatter.minutesRead}
+  >
+    <Content />
+  </BlogLayout>
 </html>

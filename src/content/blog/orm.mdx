@@ -5,6 +5,7 @@ pubDate: 2023-11-03
 hero: "~/assets/heros/ORM banner.png"
 heroAlt: "ORM: The Abstraction Dilemma"
 ---
+
 Ditahun 2018, sesuatu yang disebut "transformasi digital" sedang naik daun, dari proses digitasi sampai digitalisasi. Masyarakat dari berbagai lapisan berlomba untuk menerapkan teknologi di berbagai aspek, berkat era informasi ini pada pertengahan abad 21 ini.
 
 Penggunaan personal komputer (PC) sudah relatif banyak namun satu hal yang membuat gelembung ini besar adalah satu: internet. Internet salah satunya dapat menghubungkan penjual emping yang misal berada di Banjarnegara dengan pembeli yang berada di Sragen.
@@ -13,7 +14,7 @@ Internet memungkinan sesuatu yang sebelumnya tidak mungkin karena terdapat bingk
 
 Jika internet diibaratkan sebuah pulau, alamat IP berarti sebuah tanah kosong. Bangunannya adalah sesuatu yang disebut dengan situs, dan tidak jarang satu bangunan dihuni oleh banyak... penghuni.
 
-Setiap bangunan memiliki rancangan yang berbeda-beda, tergantung si *arsitek*. Pada sekitaran tahun 2018, kebanyakan bangunan tersebut memiliki rancangan yang sama: dibangun menggunakan sesuatu bernama HTML, CSS, JavaScript, PHP, dan basis data rasional yang kemungkinan besar MySQL. Dan jenis bangunan tersebut ada dua: statis dan dinamis. Perbedaan utamanya pada dasarnya hanyalah sumber data yang diambil untuk menampilkan sebuah halaman situs: apakah langsung dari kode, atau diambil dari sebuah penyimpanan data.
+Setiap bangunan memiliki rancangan yang berbeda-beda, tergantung si _arsitek_. Pada sekitaran tahun 2018, kebanyakan bangunan tersebut memiliki rancangan yang sama: dibangun menggunakan sesuatu bernama HTML, CSS, JavaScript, PHP, dan basis data rasional yang kemungkinan besar MySQL. Dan jenis bangunan tersebut ada dua: statis dan dinamis. Perbedaan utamanya pada dasarnya hanyalah sumber data yang diambil untuk menampilkan sebuah halaman situs: apakah langsung dari kode, atau diambil dari sebuah penyimpanan data.
 
 Umumnya, jika jenis situs yang ingin dibuat berjenis aplikasi, situs tersebut kemungkinan besar bersifat dinamis karena adanya interaksi yang dilakukan oleh pengguna dan aplikasi harus bisa menangani interaksi tersebut. Misal, bila aplikasi tersebut memiliki sistem "autentikasi" untuk dapat mengenali siapa pengguna X dengan tanda pengenal Y di aplikasi tersebut, maka si aplikasi harus menyimpan data Y tersebut.
 
@@ -21,28 +22,27 @@ Data tersebut secara teknis bisa disimpan dimana saja, namun yang paling umum ad
 
 Penyimpanan data yang persisten tersebut biasa disebut dengan basis data atau database. Tidak banyak pilihan database yang bisa digunakan pada kala itu, namun yang paling populer penggunaannya adalah basis data rasional yang salah satunya adalah [MySQL](https://mariadb.org/about).
 
-Karena MySQL juga pada dasarnya adalah sebuah aplikasi, cara agar membuat aplikasi kita bisa berkomunikasi dengan aplikasi lain adalah melalui sesuatu yang disebut dengan [*Application Programming Interface*](https://en.wikipedia.org/wiki/API) (API). *API* biasa memiliki berbagai lapisan tergantung seberapa banyak detail yang ingin disembunyikan atau yang biasa disebut dengan abstraksi.
+Karena MySQL juga pada dasarnya adalah sebuah aplikasi, cara agar membuat aplikasi kita bisa berkomunikasi dengan aplikasi lain adalah melalui sesuatu yang disebut dengan [_Application Programming Interface_](https://en.wikipedia.org/wiki/API) (API). _API_ biasa memiliki berbagai lapisan tergantung seberapa banyak detail yang ingin disembunyikan atau yang biasa disebut dengan abstraksi.
 
 Dulu gue pernah ingin menjadi seorang "Fullstack Engineer" dan pekerjaan di Front-End kurang lebih adalah melakukan slicing yang sederhananya adalah tentang mengubah berkas PSD ke HTML, berbeda dengan sekarang yang sepertinya harus mengetahui semua lapisan yang ada di OSI model.
 
 Just kidding.
 
-Di bagian back-end, mereka besar kemungkinan bertanggung jawab akan *business/domain logic* yang sederhananya "mengkodekan" aturan bisnis dunia nyata yang menentukan bagaimana data dapat dibuat, disimpan, dan diubah.
+Di bagian back-end, mereka besar kemungkinan bertanggung jawab akan _business/domain logic_ yang sederhananya "mengkodekan" aturan bisnis dunia nyata yang menentukan bagaimana data dapat dibuat, disimpan, dan diubah.
 
 Jika ada kesalahan "logic" yang menyebabkan bisnis rugi 10 milyar karena kegagalan ataupun kesalahan dalam penyimpanan data ke basis data, tidak perlu berpikir lama siapa yang harus disalahkan.
 
 Sekarang kita fokus ke bagian teknis.
 
-Basis data disebut "rasional" salah satunya adalah karena data dipresentasikan dalam bentuk tabel yang mana terdiri dari baris dan kolom. Sistem dari basis data yang rasional ini disebut dengan *Relational Database Management System* (RDBMS) yang maksudnya, bila basis data tersebut menggunakan RDBMS, cara untuk berinteraksi dengan si database ini menggunakan sesuatu bernama *Structured Query Language* (SQL).
-
+Basis data disebut "rasional" salah satunya adalah karena data dipresentasikan dalam bentuk tabel yang mana terdiri dari baris dan kolom. Sistem dari basis data yang rasional ini disebut dengan _Relational Database Management System_ (RDBMS) yang maksudnya, bila basis data tersebut menggunakan RDBMS, cara untuk berinteraksi dengan si database ini menggunakan sesuatu bernama _Structured Query Language_ (SQL).
 
 Kala itu bahasa pemrograman yang gue gunakan adalah PHP: Hypertext Preprocessor. Alasannya? Tuntutan (educational purpose) dan Pasar. Gue kurang mengerti kenapa PHP populer kala itu, yang gue yakin karena alasan ekosistem yang menjadikan pengembang PHP sebagai warga negara kelas satu seperti munculnya Web Hosting khusus untuk Web Server yang bisa menjalankan kode PHP, Content Management System (CMS) yang dibuat menggunakan PHP, dan yang paling penting dukungan PHP terhadap driver MySQL secara native.
 
 ### PHP + MySQL in the nutshell
 
-Untuk membuat aplikasi yang dibuat menggunakan PHP dapat berkomunikasi dengan MySQL, kita perlu menghubungkannya terlebih dahulu, yakni melalui API. PHP menawarkan dua cara (jika gue tidak salah ingat) yakni melalui PDO atau langsung menggunakan *driver* resmi terkait basis data yang digunakan.
+Untuk membuat aplikasi yang dibuat menggunakan PHP dapat berkomunikasi dengan MySQL, kita perlu menghubungkannya terlebih dahulu, yakni melalui API. PHP menawarkan dua cara (jika gue tidak salah ingat) yakni melalui PDO atau langsung menggunakan _driver_ resmi terkait basis data yang digunakan.
 
-Mari kita fokus ke penggunaan *driver* resmi. Dalam penggunaan driver resminya pun terdapat 2 paradigma yang ada: Prosedural dan object-oriented. Karena gue suka ribet, mari kita pilih cara prosedural.
+Mari kita fokus ke penggunaan _driver_ resmi. Dalam penggunaan driver resminya pun terdapat 2 paradigma yang ada: Prosedural dan object-oriented. Karena gue suka ribet, mari kita pilih cara prosedural.
 
 Untuk menghubungkan aplikasi PHP kita ke basis data MySQL, method dari API yang ada yang bisa kita gunakan adalah `mysqli_connect` yang umumnya membutuhkan 3 parameter: hostname, username, dan password. Jika parameter hostname ter-definisi, maka komunikasi dengan MySQL harusnya menggunakan TCP daripada via UNIX socket (IPC).
 
@@ -58,7 +58,7 @@ if (!$conn) {
 mysqli_close($conn);
 ```
 
-Kita akan menggunakan *variable* `$conn` tersebut untuk memanggil method lain seperti untuk melakukan *query* misalnya dengan memanggil `mysqli_query`. Let's do it, I guess?
+Kita akan menggunakan _variable_ `$conn` tersebut untuk memanggil method lain seperti untuk melakukan _query_ misalnya dengan memanggil `mysqli_query`. Let's do it, I guess?
 
 ```php title="php"
 $conn = mysqli_connect($hostname, $username, $password);
@@ -116,7 +116,7 @@ if (mysqli_num_rows($users) > 0) {
 mysqli_close($conn);
 ```
 
-Diatas kita sudah mendefinisikan `$dbname` dan juga kita memanggil `mysqli_num_rows` untuk memastikan bahwa ada data yang bisa kita proses dan juga memanggil `mysqli_fetch_assoc` untuk menyimpan hasil *query* yang kita lakukan sebagai *associative* array.
+Diatas kita sudah mendefinisikan `$dbname` dan juga kita memanggil `mysqli_num_rows` untuk memastikan bahwa ada data yang bisa kita proses dan juga memanggil `mysqli_fetch_assoc` untuk menyimpan hasil _query_ yang kita lakukan sebagai _associative_ array.
 
 Hasilnya kurang lebih seperti ini:
 
@@ -128,7 +128,7 @@ Array ([email] => krido@bsmnt.pro)
 
 Sekarang kita ke bagian yang menarik, bagaimana kita ingin mengambil data untuk user `anggun@acme.inc` saja? Kita bisa menambahkan `WHERE` didalam sintaks SQL kita sebelumnya!
 
-Tapi sedikit lucu jika menggunakan kolom `email` sebagai kunci utama. Biasanya kolom yang digunakan sebagai kunci utama adalah `id` dengan tipe data integer agar bisa di *auto increment* sehingga data yang disimpan bisa dijamin unik.
+Tapi sedikit lucu jika menggunakan kolom `email` sebagai kunci utama. Biasanya kolom yang digunakan sebagai kunci utama adalah `id` dengan tipe data integer agar bisa di _auto increment_ sehingga data yang disimpan bisa dijamin unik.
 
 Berarti sekarang mari kita ambil data `email` berdasarkan `id` dari si `users` tersebut!
 
@@ -159,7 +159,7 @@ Array([email] => anggun@acme.inc)
 
 Very ez. Tapi nilai `$user_id` diatas masih statis, harusnya dinamis entah diambil dari `$_GET`, `$_POST` atau bahkan `$_COOKIE`.
 
-Anggap kita ambil dari *cookie* dengan *key* bernama `user_id` karena jika menggunakan *query parameter* terlalu jelas. Kode nya seperti ini:
+Anggap kita ambil dari _cookie_ dengan _key_ bernama `user_id` karena jika menggunakan _query parameter_ terlalu jelas. Kode nya seperti ini:
 
 ```php title="php"
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
@@ -235,7 +235,7 @@ Dan, ya, mungkin kamu sedikit familiar dengan sintaks diatas.
 
 ### The abstraction dilemma
 
-Bangun tidur cek Twitter ada unpopular opinion tentang *ORMs are often overused*. Meskipun gue seringnya cuman tertarik bahas unpopular opinion tentang buna raven, but I can't stand this one.
+Bangun tidur cek Twitter ada unpopular opinion tentang _ORMs are often overused_. Meskipun gue seringnya cuman tertarik bahas unpopular opinion tentang buna raven, but I can't stand this one.
 
 Yes man, ORMs are often overused. We can literally put a very raw SQL queries on something like `/sql.php?query=select * from users --because why not` dan sanitization berada di level reverse proxy or something ataupun bisa pakai GraphQL biar lebih gaya.
 
@@ -247,9 +247,9 @@ ORM singkatnya adalah sebuah teknik untuk melakukan query dan memanipulasi data 
 
 Seperti, untuk memanggil `SELECT email FROM users where id = 1337` kita bisa hanya dengan memanggil method `find` dari instance `User` misalnya seperti `User::find(1337, ['email'])` dan hasilnya terserah ingin kita apa kan.
 
-Yang membedakan ORM dengan *"query builder"* pada dasarnya hanyalah level abstraksi alias API yang ditawarkan, seperti mungkin kita bisa menggunakan `$db->select('users', ['email'], ['id' => 1337])` yang misalnya karena kita tidak percaya dengan apa yang dilakukan oleh method `find`. Tapi ORM ada bukan karena tanpa alasan, fitur umum yang dijual oleh ORM salah duanya adalah "association" dan "hooks".
+Yang membedakan ORM dengan _"query builder"_ pada dasarnya hanyalah level abstraksi alias API yang ditawarkan, seperti mungkin kita bisa menggunakan `$db->select('users', ['email'], ['id' => 1337])` yang misalnya karena kita tidak percaya dengan apa yang dilakukan oleh method `find`. Tapi ORM ada bukan karena tanpa alasan, fitur umum yang dijual oleh ORM salah duanya adalah "association" dan "hooks".
 
-Dengan *query builder* tentu kita bisa melakukan ini:
+Dengan _query builder_ tentu kita bisa melakukan ini:
 
 ```php title="php"
 $db->transaction(
@@ -271,7 +271,7 @@ Dengan ORM, mungkin bisa seperti ini:
 DB::transaction(function() {
   $address = new Address(array('address' => 'Jl. Dipayuda'));
   $shipping_address = new ShippingAddress(array('address' => 'Jl. Mayjend Panjaitan No.69'));
-  
+
   $user = User::find(69);
 
   $user->address()->save($address);
@@ -306,7 +306,7 @@ Ya mungkin tidak sesederhana diatas, tapi semoga mendapat gambarannya.
 
 ### Testing
 
-Misal ada kasus: *Ambil data artikel yang memiliki id 10*, bagaimana kita menulis test untuk skenario diatas?
+Misal ada kasus: _Ambil data artikel yang memiliki id 10_, bagaimana kita menulis test untuk skenario diatas?
 
 Kita pasti harus mengsimulasikan basis data yang ada karena tidak mungkin bila menggunakan basis data beneran. Berdasarkan contoh diatas, untuk menandakan bahwa artikel yang diambil adalah yang memiliki id 10 dan bukan 6969, misal pseudocode nya seperti ini:
 

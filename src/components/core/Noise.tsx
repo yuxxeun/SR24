@@ -1,4 +1,3 @@
-
 function Noise({
   children,
 }: Readonly<{
@@ -6,12 +5,10 @@ function Noise({
 }>) {
   return (
     <>
-        <div className="relative">
-            <div className="bg-noise"/>
-                <div className="relative z-10">
-                    {children}
-                </div>
-        </div>
+      <div className="relative">
+        <div className="bg-noise" />
+        <div className="relative z-10">{children}</div>
+      </div>
     </>
   );
 }
