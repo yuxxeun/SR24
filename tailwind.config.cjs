@@ -42,9 +42,10 @@ module.exports = {
             ":not(pre) > code": {
               fontFamily: ["geistMonoVariable"],
               backgroundColor: theme("colors.zinc.200"),
-              borderColor: theme("colors.zinc.300"),
-              padding: "0.250rem 0.4rem",
+              borderColor: theme("colors.zinc.200"),
+              padding: "0.0.5rem 0.0.5rem",
               borderRadius: "0.250rem",
+              border: '2px solid',
               fontWeight: "400",
             },
           },

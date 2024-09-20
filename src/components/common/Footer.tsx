@@ -4,6 +4,7 @@ const messages: string[] = [
   "Find flow.",
   "Sit with your ambient ambition.",
   "Shine, constantly and steadily.",
+  "Striking and unapologetic.",
   "Pray at the altar of hard work.",
 ];
 
