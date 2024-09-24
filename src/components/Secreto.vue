@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="addComment" class="mx-auto">
+    <form v-if="!error" @submit.prevent="addComment" class="mx-auto">
       <textarea
         v-model="newComment"
         autofocus
@@ -27,6 +27,7 @@
         </button>
       </div>
     </div>
+    
     <div v-else>
       <ul>
         <li
