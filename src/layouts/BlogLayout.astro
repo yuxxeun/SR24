@@ -4,6 +4,7 @@ import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Header from "@components/common/Header.astro";
+import NBJ from "@components/NBJ.astro";
 
 interface Props {
   title: string;
@@ -119,6 +120,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       <br />
       With this way, you can stay up to date to my latest posts.
     </p>
+    <NBJ/>
   </section>
   <!-- <ul class="mt-4 flex justify-between">
     <li title="Copy the link of this article">
